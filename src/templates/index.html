@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Server Test</title>
+</head>
+<body>
+    <h2>Server works</h2>
+    <form>
+        <input type="text" id="first_name" name="first_name" placeholder="First Name">
+        <input type="text" id="last_name" name="last_name" placeholder="Last Name">
+        <input type="number" id="age" name="age" placeholder="Age" min="0">
+        <button type="button" onclick="saveInfo()">Save</button>
+    </form>
+
+    <button onclick="loadHtml()">Next Page</button>
+    <br><br>
+    <button onclick="loadInfo()">View Students</button>
+    <br>
+
+    <div>
+        <table border="1|1">
+            <thead>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+            </thead>
+            <tbody id="studTable">
+            </tbody>
+        </table>
+    </div>
+
+    <br><br>
+    <button><a href="main">Main Html</a></button>
+
+    <script src="web.js"></script>
+</body>
+</html>
