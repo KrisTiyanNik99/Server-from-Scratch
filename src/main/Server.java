@@ -32,9 +32,10 @@ public class Server {
 
                         String urlHtml = "src/templates/index.html";
                         GetHandler(out, urlHtml);
-                    } else if (request.startsWith("GET /stud/info")) {
+                    } else if (request.equals("GET /style.css HTTP/1.1")) {
 
-                        GetInfoHandler(out);
+                        String urlCss = "src/templates/css/style.css";
+                        GetHandler(out, urlCss);
                     } else if (request.equals("GET /web.js HTTP/1.1")) {
 
                         String urlJs = "src/templates/js/web.js";
