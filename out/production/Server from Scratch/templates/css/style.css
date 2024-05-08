@@ -1,7 +1,45 @@
+/* Applying basic reset and styling to all elements */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-transform: capitalize;
-    letter-spacing: .5px;
+    text-transform: capitalize; /* Capitalizing all text */
+    letter-spacing: .5px; /* Adding some letter spacing for better readability */
+}
+
+/* Styling for the heading element */
+.main-title{
+    text-align: center; /* Center-aligning the text */
+}
+
+/* Styling for the container of cards */
+.card-container{
+    width: 80%; /* Setting the width to 80% of the container's width */
+    margin: 4rem auto; /* Centering the container horizontally with a top margin of 4rem */
+    display: grid; /* Using CSS Grid for layout */
+    grid-template-columns: repeat(4, 1fr); /* Creating a grid with 4 columns of equal width */
+    gap: 2rem; /* Adding a gap of 2rem between grid items */
+}
+
+/* Styling for individual cards */
+.card{
+    padding: 2rem; /* Adding padding around the card content */
+    box-shadow: 0 0 .4rem .4rem rgba(0, 0, 0, 0.2); /* Applying a box shadow for depth effect */
+    transition: .4s ease-in; /* Adding a smooth transition effect */
+}
+
+/* Hover effect for cards */
+.card:hover{
+    background: rgb(226, 226, 226); /* Changing background color on hover */
+}
+
+/* Styling for card heading */
+.card-heading{
+    color: tomato; /* Setting color of heading text */
+    margin-bottom: .5rem; /* Adding some bottom margin for spacing */
+}
+
+/* Styling for card body text */
+.card-body{
+    color: navy; /* Setting color of body text */
 }

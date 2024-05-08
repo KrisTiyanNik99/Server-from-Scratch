@@ -13,21 +13,19 @@ public class Server {
             System.out.println("Server is start on port " + 5679);
 
             while (true) {
-
-                // Приемане на връзка от клиент
+                // Accept connection from client
                 Socket clientSocket = serverSocket.accept();
 
                 BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 PrintWriter out = new PrintWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
 
-                // Четем заявката и си я принтираме
+                // Read and print the request
                 String request = in.readLine();
                 System.out.println(request);
 
-                // Проверка на HTTP заявките от клиента
+                // Check HTTP requests from the client
                 if (request.startsWith("GET")) {
-
-                    // Проверка към кой GET адрес се изпраща заявка
+                    // Checking which GET address the request is sent to
                     if (request.equals("GET / HTTP/1.1")) {
 
                         String urlHtml = "src/templates/index.html";
@@ -35,13 +33,19 @@ public class Server {
                     } else if (request.equals("GET /style.css HTTP/1.1")) {
 
                         String urlCss = "src/templates/css/style.css";
-                        GetHandler(out, urlCss);
-                    } else if (request.equals("GET /web.js HTTP/1.1")) {
+                        GetHandlerCss(out, urlCss);
+                    } else if (request.equals("GET /index.js HTTP/1.1")) {
 
-                        String urlJs = "src/templates/js/web.js";
+                        // application/javascript
+                        String urlJs = "src/templates/js/index.js";
                         GetHandler(out, urlJs);
-                    } else {
+                    } else if (request.equals("GET /dict/info HTTP/1.1")){
 
+                        // Handling GET request for dictionary info
+                        GetInfoHandler(out);
+                    }else {
+
+                        // Handling 404 Not Found
                         out.println("HTTP/1.1 404 Not Found");
                         out.println("Content-Type: text/html");
                         out.println();
@@ -55,42 +59,45 @@ public class Server {
                         requestBody.append((char) in.read());
                     }
 
-                    // Разделяме заявката на 2 части за да отделим тялото и от останалата информация
+                    // Splitting the request into 2 parts to separate the body from the rest of the information
                     String[] data = requestBody.toString().split("\\n\\s*\\n");
                     String singleEntity = data[1];
 
-                    // Запазване на информацията към json файла
+                    // Saving the information to the JSON file
                     PostHandler(singleEntity);
 
-                    // Връщане на статус и отговор в json формат, че заявката е получена успешно
+                    // Returning status and response in JSON format that the request was received successfully
                     out.println("HTTP/1.1 200 OK");
                     out.println("Content-Type: application/json");
                     out.println();
                 } else {
 
+                    // Handling other HTTP methods
                     out.println("HTTP/1.1 200 OK");
                     out.println("Content-Type: text/html");
                     out.println();
                 }
 
                 out.flush();
-                // Затваряне на връзката с клиента
+                // Closing the connection with the client
                 clientSocket.close();
             }
         } catch (IOException e) {
+            // Handling IO exceptions
             e.printStackTrace();
         }
     }
 
-    // Метод за обработка на GET заявката, която връща HTML отговор
+    // Method for handling GET requests that return HTML response
     private static void GetHandler(PrintWriter output, String urlHtml) throws IOException {
 
+        // Sending HTTP header for a successful response
         output.println("HTTP/1.1 200 OK");
         output.println("Content-Type: text/html");
         output.println();
 
+        // Reading HTML file and sending its content to the client
         File htmlFile = new File(urlHtml);
-
         BufferedReader readHtml = new BufferedReader(new FileReader(htmlFile));
         String line;
 
@@ -101,23 +108,47 @@ public class Server {
         readHtml.close();
     }
 
-    // Метод за обработка на GET заявката, която връща JSON отговор
+    // Method for handling CSS requests
+    private static void GetHandlerCss(PrintWriter output, String urlCss) throws IOException {
+
+        // Sending HTTP header for a successful response
+        output.println("HTTP/1.1 200 OK");
+        output.println("Content-Type: text/css");
+        output.println();
+
+        // Reading CSS file and sending its content to the client
+        File htmlFile = new File(urlCss);
+        BufferedReader readHtml = new BufferedReader(new FileReader(htmlFile));
+        String line;
+
+        while ((line = readHtml.readLine()) != null) {
+            output.println(line);
+        }
+
+        readHtml.close();
+    }
+
+    // Method for handling GET requests that return a JSON response
     private static void GetInfoHandler(PrintWriter output) {
 
-        // Връщане на статус и отговор в json формат
+        // Sending HTTP header for a successful JSON response
         output.println("HTTP/1.1 200 OK");
         output.println("Content-Type: application/json");
         output.println();
 
+        // Retrieving JSON data and sending it as the response
         JsonManager infoManager = new JsonManager();
         String data = infoManager.getInfoFromJson();
         output.println(data);
     }
 
-    // Метод за обработка и запазване на информация от Post заявката
+    // Method for handling and saving information from a POST request
     private static void PostHandler(String singleEntity) {
 
+        // Creating an instance of JsonManager to save data to the repository
         JsonManager saveDataToRepo = new JsonManager();
+
+        // Saving the received data to the JSON file
         saveDataToRepo.saveInfoToJsonFile(singleEntity);
     }
 }
