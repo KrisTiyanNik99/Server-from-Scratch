@@ -9,8 +9,8 @@ import java.net.Socket;
 public class Server {
     public static void main(String[] args) {
 
-        try (ServerSocket serverSocket = new ServerSocket(5679)) {
-            System.out.println("Server is start on port " + 5679);
+        try (ServerSocket serverSocket = new ServerSocket(5678)) {
+            System.out.println("Server is start on port " + 5678);
 
             while (true) {
                 // Accept connection from client
@@ -30,20 +30,50 @@ public class Server {
 
                         String urlHtml = "src/templates/index.html";
                         GetHandler(out, urlHtml);
-                    } else if (request.equals("GET /style.css HTTP/1.1")) {
+                    } else if (request.equals("GET /dict.html HTTP/1.1")) {
+
+                        String urlHtml = "src/templates/dict.html";
+                        GetHandler(out, urlHtml);
+                    } else if (request.equals("GET /test.html HTTP/1.1")){
+
+                        String urlHtml = "src/templates/test.html";
+                        GetHandler(out, urlHtml);
+                    }
+                    // Get Css Files
+                    else if (request.equals("GET /style.css HTTP/1.1")) {
 
                         String urlCss = "src/templates/css/style.css";
                         GetHandlerCss(out, urlCss);
-                    } else if (request.equals("GET /index.js HTTP/1.1")) {
+                    } else if (request.equals("GET /sideboard.css HTTP/1.1")) {
+
+                        String urlCss = "src/templates/css/sideboard.css";
+                        GetHandlerCss(out, urlCss);
+                    }
+                    // Get JavaScript Files
+                    else if (request.equals("GET /dict.js HTTP/1.1")) {
 
                         // application/javascript
+                        String urlJs = "src/templates/js/dict.js";
+                        GetHandler(out, urlJs);
+                    }else if (request.equals("GET /mode_changer.js HTTP/1.1")){
+
+                        String urlJs = "src/templates/js/mode_changer.js";
+                        GetHandler(out, urlJs);
+                    }else if (request.equals("GET /index.js HTTP/1.1")){
+
                         String urlJs = "src/templates/js/index.js";
                         GetHandler(out, urlJs);
-                    } else if (request.equals("GET /dict/info HTTP/1.1")){
+                    }
+                    // Get Info
+                    else if (request.equals("GET /dict/info HTTP/1.1")) {
 
                         // Handling GET request for dictionary info
                         GetInfoHandler(out);
-                    }else {
+                    } else if (request.equals("GET /logo.png HTTP/1.1")) {
+
+                        String imgUrl = "src/resource/images/logo.png";
+                        GetHandlerImg(imgUrl, clientSocket);
+                    } else {
 
                         // Handling 404 Not Found
                         out.println("HTTP/1.1 404 Not Found");
@@ -117,15 +147,33 @@ public class Server {
         output.println();
 
         // Reading CSS file and sending its content to the client
-        File htmlFile = new File(urlCss);
-        BufferedReader readHtml = new BufferedReader(new FileReader(htmlFile));
+        File cssFile = new File(urlCss);
+        BufferedReader readCss = new BufferedReader(new FileReader(cssFile));
         String line;
 
-        while ((line = readHtml.readLine()) != null) {
+        while ((line = readCss.readLine()) != null) {
             output.println(line);
         }
 
-        readHtml.close();
+        readCss.close();
+    }
+
+    private static void GetHandlerImg(String urlImage, Socket clientSocket) throws IOException {
+
+        OutputStream out = clientSocket.getOutputStream();
+        FileInputStream fileIn = new FileInputStream(urlImage);
+        byte[] buffer = new byte[1024];
+        int bytesRead;
+
+        out.write("HTTP/1.1 200 OK\\r\\n".getBytes());
+        out.write("Content-Type: image/png\r\n".getBytes());
+        out.write("\r\n".getBytes());
+
+        while ((bytesRead = fileIn.read(buffer)) != -1) {
+            out.write(buffer, 0, bytesRead);
+        }
+
+        out.close();
     }
 
     // Method for handling GET requests that return a JSON response

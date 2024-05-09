@@ -1,19 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Dictionary Web</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Css file link -->
+    <link rel="stylesheet" href="sideboard.css">
+
+    <!-- Css box icons link -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <h1 class="main-title">Dictionary with knowing words</h1>
-    <div class="card-container">
-        <!-- <div class="card">
-            <h3 class="card-heading">Word</h3>
-            <p class="card-body">Translated</p>
-        </div> -->
-    </div>
+    <nav class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="logo.png" alt="logo">
+                </span>
 
+                <div class="text header-text">
+                    <span class="name">Dictionary Web</span>
+                    <span class="position">Main Menu</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <!-- Side Bar Menu -->
+        <div class="menu-bar">
+            <div class="menu">
+                <li class="search-box">
+                    <i class='bx bx-search-alt icon'></i>
+                    <input type="search" placeholder="Search......">
+                </li>
+
+                <!-- Menu Options -->
+                <ul class="menu-link">
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-bulb icon'></i>
+                            <span class="text nav-text">Exercise</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="dict.html">
+                            <i class='bx bx-book-bookmark icon'></i>
+                            <span class="text nav-text">My Dictionary</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#" onclick="miniReport()">
+                            <i class='bx bx-book-bookmark icon'></i>
+                            <span class="text nav-text">Test</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="moon-sun">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+
+                    <span class="mode-text text">Dark Mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Container for dynamic content -->
+    <div id="container"></div>
+
+    <!-- JavaScript files for functionality -->
+    <script src="mode_changer.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
