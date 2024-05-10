@@ -29,17 +29,18 @@
 body{
     height: 100vh;
     background: var(--body-color);
+    transition: var(--tran-05);
     display: flex;
 }
 
 /* Dark Mode colors */
 body.dark{
-    --body-color: #;
-    --sidebar-color: #;
-    --primary-color: #;
-    --primary-color-light: #F6F5FF;
-    --toggle-color: #;
-    --text-color: #;
+    --body-color: #18191A;
+    --sidebar-color: #242526;
+    --primary-color: #3A3B3C;
+    --primary-color-light: #3A3B3C;
+    --toggle-color: #FFF;
+    --text-color: #CCC;
 }
 
 /* Styling the sidebar */
@@ -51,6 +52,13 @@ body.dark{
     width: 250px;
     padding: 10px 14px;
     background: var(--sidebar-color);
+    transition: var(--tran-05);
+    z-index: 100;
+}
+
+/* Closing Sidebar */
+.sidebar.close{
+    width: 88px;
 }
 
 /* Styling text within the sidebar */
@@ -58,6 +66,13 @@ body.dark{
     font-size: 18px;
     font-weight: 500;
     color: var(--text-color);
+    transition: var(--tran-03);
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar.close .text{
+    opacity: 0;
 }
 
 /* Styling the image within the sidebar */
@@ -65,6 +80,7 @@ body.dark{
     min-width: 70px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 /* Styling list items within the sidebar */
@@ -125,7 +141,7 @@ header .image-text .header-text{
     position: absolute;
     top: 50%;
     right: -25px;
-    transform: translateY(-50%);
+    transform: translateY(-50%) rotate(180deg);
     height: 25px;
     width: 25px;
     background: var(--primary-color);
@@ -135,11 +151,27 @@ header .image-text .header-text{
     border-radius: 50%;
     color: var(--sidebar-color);
     font-size: 22px;
+    transition: var(--tran-03);
 }
 
 /* Styling the search box */
 .sidebar .search-box{
     background: var(--primary-color-light);
+    border-radius: 6px;
+    transition: var(--tran-05);
+}
+
+.sidebar.close header .toggle{
+    transform: translateY(-50%);
+}
+
+body.dark .sidebar header .toggle{
+    transform: rotate(180deg);
+    color: var(--text-color);
+}
+
+.sidebar .menu{
+    margin-top: 35px;
 }
 
 /* Styling the search input */
@@ -148,6 +180,8 @@ header .image-text .header-text{
     width: 100%;
     outline: none;
     border: none;
+    font_size: 16px;
+    font-weight: 500;
     border-radius: 6px;
     background: var(--primary-color-light);
 }
@@ -174,6 +208,11 @@ header .image-text .header-text{
     color: var(--sidebar-color);
 }
 
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text{
+    color: var(--text-color);
+}
+
 /* Styling the menu bar */
 .sidebar .menu-bar{
     height: calc(100% - 50px);
@@ -184,6 +223,8 @@ header .image-text .header-text{
 
 /* Styling the mode section */
 .menu-bar .mode{
+    position: relative;
+    border-radius: 6px;
     background: var(--primary-color-light);
 }
 
@@ -197,20 +238,34 @@ header .image-text .header-text{
 
 .menu-bar .mode i{
     position: absolute;
+    transition: var(--tran-03);
 }
 
 .menu-bar .mode i.sun{
     opacity: 0;
 }
 
+body.dark .menu-bar .mode i.sun{
+    opacity: 1;
+}
+
+body.dark .menu-bar .mode i.moon{
+    opacity: 0;
+}
+
 /* Styling the toggle switch */
 .menu-bar .mode .toggle-switch{
+    position: absolute;
+    right: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
     min-width: 60px;
     cursor: pointer;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+    transition: var(--tran--05);
 }
 
 /* Styling the switch */
@@ -233,9 +288,25 @@ header .image-text .header-text{
     left: 5px;
     transform: translateY(-50%);
     background: var(--sidebar-color);
+    transition: var(--tran-03);
 }
 
 /* Turn page in dark mode */
 body.dark .switch::before{
     left: 24px;
+}
+
+/* Other part of the main html page */
+.home{
+    position: relative;
+    height: 100vh;
+    left: 250px;
+    width: calc(100% - 250px);
+    background: var(--body-color);
+    transition: var(--tran-05);
+}
+
+.sidebar.close ~ .home{
+    left: 88px;
+    width: calc(100% - 88px);
 }

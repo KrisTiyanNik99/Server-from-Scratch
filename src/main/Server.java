@@ -55,9 +55,9 @@ public class Server {
                         // application/javascript
                         String urlJs = "src/templates/js/dict.js";
                         GetHandler(out, urlJs);
-                    }else if (request.equals("GET /mode_changer.js HTTP/1.1")){
+                    }else if (request.equals("GET /changer.js HTTP/1.1")){
 
-                        String urlJs = "src/templates/js/mode_changer.js";
+                        String urlJs = "src/templates/js/changer.js";
                         GetHandler(out, urlJs);
                     }else if (request.equals("GET /index.js HTTP/1.1")){
 
