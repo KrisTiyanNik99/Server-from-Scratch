@@ -1,8 +1,5 @@
 /* Applying basic reset and styling to all elements */
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
     text-transform: capitalize; /* Capitalizing all text */
     letter-spacing: .5px; /* Adding some letter spacing for better readability */
 }
