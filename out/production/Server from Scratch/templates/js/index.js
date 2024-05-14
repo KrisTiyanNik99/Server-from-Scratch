@@ -3,8 +3,6 @@ function getAjaxElement(){
     // Get container element by ID
     const container = document.getElementById('home');
 
-    // Create new XMLHttpRequest object
-    const xhr = new XMLHttpRequest();
     // Initialize variable to store href value
     var hrefValue = "";
 

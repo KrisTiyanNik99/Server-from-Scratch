@@ -1,11 +1,30 @@
 <h1 class="main-title">Dictionary with knowing words</h1>
 <link rel="stylesheet" href="style.css">
-<div class="card-container">
 
+<!-- Content container with our cards -->
+<div class="card-container">
     <!-- <div class="card">
         <h3 class="card-heading">Word</h3>
         <p class="card-body">Translated</p>
     </div> -->
 </div>
-<link rel="stylesheet" href="style.css">
+
+<!-- Dialog window -->
+<dialog id="word-dialog" class="center-dialog">
+    <div class="wrapper">
+        <h3>Please enter a word and its translation</h3>
+        <form class="dialog-elements">
+            <input type="text" placeholder="Enter Some Word"> <br>
+            <input type="text" placeholder="Enter translation of the word">
+            <button>Add</button> <br>
+            <button onclick="closeDialog()" type="button">Cancel</button>
+        </form>
+    </div>
+</dialog>
+
+<!-- Open Dialog Button -->
+<button class="bottom-left-button" onclick="openDialog()">+</button>
+
+<!-- Scripts -->
+<script src="dialog.js"></script>
 <script src="dict.js"></script>

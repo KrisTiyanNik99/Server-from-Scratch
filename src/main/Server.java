@@ -63,6 +63,10 @@ public class Server {
 
                         String urlJs = "src/templates/js/index.js";
                         GetHandler(out, urlJs);
+                    }else if (request.equals("GET /dialog.js HTTP/1.1")){
+
+                        String urlJs = "src/templates/js/dialog.js";
+                        GetHandler(out, urlJs);
                     }
                     // Get Info
                     else if (request.equals("GET /dict/info HTTP/1.1")) {
