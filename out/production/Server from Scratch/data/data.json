@@ -1,41 +1,178 @@
 [
-    {"word": "book", "translated": "книга"},
-    {"word": "pen", "translated": "молив"},
-    {"word": "table", "translated": "маса"},
-    {"word": "chair", "translated": "стол"},
-    {"word": "computer", "translated": "компютър"},
-    {"word": "phone", "translated": "телефон"},
-    {"word": "keyboard", "translated": "клавиатура"},
-    {"word": "mouse", "translated": "мишка"},
-    {"word": "desk", "translated": "бюро"},
-    {"word": "lamp", "translated": "лампа"},
-    {"word": "bed", "translated": "легло"},
-    {"word": "door", "translated": "врата"},
-    {"word": "window", "translated": "прозорец"},
-    {"word": "cup", "translated": "чаша"},
-    {"word": "plate", "translated": "чиния"},
-    {"word": "spoon", "translated": "лъжица"},
-    {"word": "fork", "translated": "вилица"},
-    {"word": "knife", "translated": "нож"},
-    {"word": "glass", "translated": "чаша"},
-    {"word": "television", "translated": "телевизор"},
-    {"word": "remote", "translated": "дистанционно"},
-    {"word": "bag", "translated": "чанта"},
-    {"word": "shoes", "translated": "обувки"},
-    {"word": "shirt", "translated": "риза"},
-    {"word": "pants", "translated": "панталон"},
-    {"word": "dress", "translated": "рокля"},
-    {"word": "hat", "translated": "шапка"},
-    {"word": "jacket", "translated": "яке"},
-    {"word": "watch", "translated": "часовник"},
-    {"word": "bracelet", "translated": "гривна"},
-    {"word": "ring", "translated": "пръстен"},
-    {"word": "earrings", "translated": "обици"},
-    {"word": "wallet", "translated": "портфейл"},
-    {"word": "keys", "translated": "ключове"},
-    {"word": "camera", "translated": "камера"},
-    {"word": "paper", "translated": "хартия"},
-    {"word": "pencil", "translated": "олив"},
-    {"word": "notebook", "translated": "бележник"},
-    {"word": "bagpack", "translated": "раница"}
+    {
+        "translated": "книга",
+        "word": "book"
+    },
+    {
+        "translated": "молив",
+        "word": "pen"
+    },
+    {
+        "translated": "маса",
+        "word": "table"
+    },
+    {
+        "translated": "стол",
+        "word": "chair"
+    },
+    {
+        "translated": "компютър",
+        "word": "computer"
+    },
+    {
+        "translated": "телефон",
+        "word": "phone"
+    },
+    {
+        "translated": "клавиатура",
+        "word": "keyboard"
+    },
+    {
+        "translated": "мишка",
+        "word": "mouse"
+    },
+    {
+        "translated": "бюро",
+        "word": "desk"
+    },
+    {
+        "translated": "лампа",
+        "word": "lamp"
+    },
+    {
+        "translated": "легло",
+        "word": "bed"
+    },
+    {
+        "translated": "врата",
+        "word": "door"
+    },
+    {
+        "translated": "прозорец",
+        "word": "window"
+    },
+    {
+        "translated": "чаша",
+        "word": "cup"
+    },
+    {
+        "translated": "чиния",
+        "word": "plate"
+    },
+    {
+        "translated": "лъжица",
+        "word": "spoon"
+    },
+    {
+        "translated": "вилица",
+        "word": "fork"
+    },
+    {
+        "translated": "нож",
+        "word": "knife"
+    },
+    {
+        "translated": "чаша",
+        "word": "glass"
+    },
+    {
+        "translated": "телевизор",
+        "word": "television"
+    },
+    {
+        "translated": "дистанционно",
+        "word": "remote"
+    },
+    {
+        "translated": "чанта",
+        "word": "bag"
+    },
+    {
+        "translated": "обувки",
+        "word": "shoes"
+    },
+    {
+        "translated": "риза",
+        "word": "shirt"
+    },
+    {
+        "translated": "панталон",
+        "word": "pants"
+    },
+    {
+        "translated": "рокля",
+        "word": "dress"
+    },
+    {
+        "translated": "шапка",
+        "word": "hat"
+    },
+    {
+        "translated": "яке",
+        "word": "jacket"
+    },
+    {
+        "translated": "часовник",
+        "word": "watch"
+    },
+    {
+        "translated": "гривна",
+        "word": "bracelet"
+    },
+    {
+        "translated": "пръстен",
+        "word": "ring"
+    },
+    {
+        "translated": "обици",
+        "word": "earrings"
+    },
+    {
+        "translated": "портфейл",
+        "word": "wallet"
+    },
+    {
+        "translated": "ключове",
+        "word": "keys"
+    },
+    {
+        "translated": "камера",
+        "word": "camera"
+    },
+    {
+        "translated": "хартия",
+        "word": "paper"
+    },
+    {
+        "translated": "олив",
+        "word": "pencil"
+    },
+    {
+        "translated": "бележник",
+        "word": "notebook"
+    },
+    {
+        "translated": "раница",
+        "word": "bagpack"
+    },
+    {
+        "translated": "Котка",
+        "word": "Cat"
+    },
+    {
+        "translated": "Куче",
+        "word": "Dog"
+    },
+    {
+        "translated": "Костенурка",
+        "word": "Turtle"
+    },
+    {
+        "translated": "Лисица",
+        "word": "Fox"
+    },
+    {
+        "translated": "Заек",
+        "word": "Rabbit"
+    }
 ]

@@ -12,6 +12,7 @@ public class Server {
         try (ServerSocket serverSocket = new ServerSocket(5678)) {
             System.out.println("Server is start on port " + 5678);
 
+            // Loop the incoming information
             while (true) {
                 // Accept connection from client
                 Socket clientSocket = serverSocket.accept();
@@ -75,6 +76,7 @@ public class Server {
                         GetInfoHandler(out);
                     } else if (request.equals("GET /logo.png HTTP/1.1")) {
 
+                        // Get Image handler
                         String imgUrl = "src/resource/images/logo.png";
                         GetHandlerImg(imgUrl, clientSocket);
                     } else {

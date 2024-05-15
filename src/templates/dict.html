@@ -13,12 +13,12 @@
 <dialog id="word-dialog" class="center-dialog">
     <div class="wrapper">
         <h3>Please enter a word and its translation</h3>
-        <form class="dialog-elements">
-            <input type="text" placeholder="Enter Some Word"> <br>
-            <input type="text" placeholder="Enter translation of the word">
-            <button>Add</button> <br>
-            <button onclick="closeDialog()" type="button">Cancel</button>
-        </form>
+        <div class="dialog-elements">
+            <input type="text" id="word" placeholder="Enter Some Word">
+            <input type="text" id="translated" placeholder="Enter translation of the word"> <br>
+            <button id="submit">Add</button>
+            <button onclick="dialogClose()">Cancel</button>
+        </div>
     </div>
 </dialog>
 
